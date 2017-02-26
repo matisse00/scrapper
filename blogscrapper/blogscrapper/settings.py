@@ -14,6 +14,15 @@ BOT_NAME = 'blogscrapper'
 SPIDER_MODULES = ['blogscrapper.spiders']
 NEWSPIDER_MODULE = 'blogscrapper.spiders'
 
+SITE_CONFIG = {
+    'name': 'build.sh',
+    'allowed_domains': ['build.sh'],
+    'start_urls': ['http://build.sh/kickstarter-we-are-a-backer/'],
+    'text_selector': 'article section.post-content p::text',
+    'author_selector': 'footer.post-footer span.author-content h4::text',
+    'next_page_selector': 'li.pull-right a::attr(href)'
+}
+
 DATABASE = {
     'drivername': 'postgres',
     'host': 'localhost',
