@@ -1,9 +1,9 @@
-from rest_framework import serializers
-from models import Main
+from rest_framework.serializers import HyperlinkedModelSerializer
+from models import Post
 
 
-class MainSerializer(serializers.HyperlinkedModelSerializer):
+class PostSerializer(HyperlinkedModelSerializer):
     class Meta:
-        model = Main
+        model = Post
         fields = ('id', 'text', 'author')
 

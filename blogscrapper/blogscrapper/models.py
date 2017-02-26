@@ -22,7 +22,7 @@ def create_scrapydb_table(engine):
 
 class ScrapyDB(DeclarativeBase):
     """Sqlalchemy deals model"""
-    __tablename__ = "app_main"
+    __tablename__ = "app_post"
 
     id = Column(Integer, primary_key=True)
     text = Column('text', String)

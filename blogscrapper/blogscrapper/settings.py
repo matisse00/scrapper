@@ -18,8 +18,8 @@ DATABASE = {
     'drivername': 'postgres',
     'host': 'localhost',
     'port': '5432',
-    'username': 'postgres',
-    'password': 'password',
+    'username': 'scrappyuser',
+    'password': '12345',
     'database': 'scrapy'
 }
 ITEM_PIPELINES = {'blogscrapper.pipelines.BlogscrapperPipeline': 100}

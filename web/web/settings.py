@@ -26,7 +26,7 @@ SECRET_KEY = '#++7p@j)29bl5&_8*uk%mlzas8!s=1g&-9&!0#!@%#177q-wk-'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+POST_COMMON_WORDS_COUNT = 10
 
 # Application definition
 
@@ -79,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'scrapy',
-        'USER': 'postgres',
-        'PASSWORD': 'password',
+        'USER': 'scrappyuser',
+        'PASSWORD': '12345',
         'HOST': 'localhost',
         'PORT': '5432'
     }

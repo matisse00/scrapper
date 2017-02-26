@@ -2,32 +2,31 @@ import re
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from serializers import MainSerializer
-from models import Main
+from serializers import PostSerializer
+from models import Post
 from collections import Counter
+from web.settings import POST_COMMON_WORDS_COUNT
 
 
-class MainView(generics.ListCreateAPIView):
-    queryset = Main.objects.all()
-    serializer_class = MainSerializer
+class PostsView(generics.ListCreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
 
 
-class StatView(APIView):
+class StatsView(APIView):
     def get(self, request, format=None):
-        string = ""
-        for e in Main.objects.all():
-            string += e.text
-        words = re.findall(r'\w+', string.lower())
-        return Response(Counter(words).most_common(10))
+        posts_content = ""
+        for post in Post.objects.all():
+            posts_content += post.text
+        words = re.findall(r'\w+', posts_content.lower())
+        return Response(Counter(words).most_common(POST_COMMON_WORDS_COUNT))
 
 
-class StatViewAuthor(APIView):
+class StatsAuthorView(APIView):
     def get(self, request, *args, **kwargs):
-        string = ""
-        print kwargs.get('pk', None)
-        name = '{"' + kwargs.get('pk', None) + '"}'
-        print name
-        for e in Main.objects.filter(author=name):
-            string += e.text
-        words = re.findall(r'\w+', string.lower())
-        return Response(Counter(words).most_common(10))
+        posts_content = ""
+        post_author_name = '{"' + kwargs.get('pk', None) + '"}'
+        for post in Post.objects.filter(author=post_author_name):
+            posts_content += post.text
+        words = re.findall(r'\w+', posts_content.lower())
+        return Response(Counter(words).most_common(POST_COMMON_WORDS_COUNT))
