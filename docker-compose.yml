@@ -2,7 +2,7 @@ version: '2'
 services:
   db:
     restart: always
-    build: database/
+    build: docker/docker-db
     environment:
       - POSTGRES_USER=scrappyuser
       - POSTGRES_PASSWORD=12345
@@ -10,7 +10,7 @@ services:
     ports:
       - "5432:5432"
   web:
-    build: .
+    build: docker/docker-web
     command: python /code/web/manage.py runserver 0.0.0.0:8080
     volumes:
       - .:/code
