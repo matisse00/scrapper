@@ -25,7 +25,7 @@ SITE_CONFIG = {
 
 DATABASE = {
     'drivername': 'postgres',
-    'host': 'localhost',
+    'host': 'db',
     'port': '5432',
     'username': 'scrappyuser',
     'password': '12345',

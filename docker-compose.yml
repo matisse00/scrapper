@@ -1,0 +1,21 @@
+version: '2'
+services:
+  db:
+    restart: always
+    build: database/
+    environment:
+      - POSTGRES_USER=scrappyuser
+      - POSTGRES_PASSWORD=12345
+      - POSTGRES_DB=scrapy
+    ports:
+      - "5432:5432"
+  web:
+    build: .
+    command: python /code/web/manage.py runserver 0.0.0.0:8080
+    volumes:
+      - .:/code
+    ports:
+      - "8080:8080"
+    links:
+      - db
+    entrypoint: /entrypoint.sh

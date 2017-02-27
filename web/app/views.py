@@ -25,7 +25,7 @@ class StatsView(APIView):
 class StatsAuthorView(APIView):
     def get(self, request, *args, **kwargs):
         posts_content = ""
-        post_author_name = '{"' + kwargs.get('pk').title().replace('_', " ") + '"}'
+        post_author_name = '{"' + kwargs.get('author_url').title().replace('_', " ") + '"}'
         for post in Post.objects.filter(author=post_author_name):
             posts_content += post.text
         words = re.findall(r'\w+', posts_content.lower())

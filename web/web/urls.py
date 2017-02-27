@@ -20,5 +20,5 @@ from app import views
 urlpatterns = [
     url(r'^$', views.PostsView.as_view()),
     url(r'^stats/$', views.StatsView.as_view()),
-    url(r'^stats/(?P<pk>.+)', views.StatsAuthorView.as_view())
+    url(r'^stats/(?P<author_url>.+)', views.StatsAuthorView.as_view())
 ]
