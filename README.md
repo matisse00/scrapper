@@ -16,6 +16,6 @@ SITE_CONFIG = {
     'next_page_selector': 'li.pull-right a::attr(href)' # put selector to next page
 }
 ```
-Change your database settings in `blogscrapper/settings.py` and `web/web/settings.py` (change `'host'` to `'localhost'` if you want to use app on local.
+Change your database settings in `blogscrapper/settings.py` and `web/web/settings.py` (change `'host'` to `'localhost'` if you want to use app local.)
 
 If you already have postgres client on port 5432 and you cannot run db container try `sudo service postgresql stop`
