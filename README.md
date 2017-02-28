@@ -19,3 +19,11 @@ SITE_CONFIG = {
 Change your database settings in `blogscrapper/settings.py` and `web/web/settings.py` (change `'host'` to `'localhost'` if you want to use app local.)
 
 If you already have postgres client on port 5432 and you cannot run db container try `sudo service postgresql stop`
+
+# GET examples
+```
+example:8080
+example:8080/stats/
+example:8080/stats/firstname_lastname/
+example:8080/stats/firstname%20lastname/
+```
