@@ -6,7 +6,7 @@ constantly==15.1.0
 cryptography==1.7.2
 cssselect==1.0.1
 Django==1.10.5
-djangorestframework==3.5.4
+djangorestframework==3.11.2
 enum34==1.1.6
 idna==2.2
 incremental==16.10.1
